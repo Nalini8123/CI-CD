@@ -11,6 +11,7 @@ piepline {
           sh mv clean install
        }
      }
+    
        stage('deploy') {
         steps {
          echo "deploying...."
