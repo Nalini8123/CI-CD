@@ -8,7 +8,7 @@ pipeline {
      }
      stage('build') {
        steps {
-          sh mv clean install
+          sh 'mv clean install'
        }
      }
     
