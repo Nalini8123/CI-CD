@@ -6,7 +6,6 @@ piepline {
           checkout scm
        }
      }
-    
      stage('build') {
        steps {
           sh mv clean install
