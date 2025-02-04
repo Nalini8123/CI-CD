@@ -16,6 +16,7 @@ piepline {
              sh "cp CI-CD/target/webapps.war /opt/tomcat/webapps' 
            }
            }
+    
         stage('test') {
           steps {
            echo "testing..."
