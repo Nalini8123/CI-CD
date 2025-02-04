@@ -11,11 +11,11 @@ piepline {
           sh mv clean install
        }
      }
-       stage('deploy') {
-        steps {
-         echo "deploying...."
-        }
-       }
+       stage('Deploy') {
+           steps {
+             sh "cp CI-CD/target/webapps.war /opt/tomcat/webapps' 
+           }
+           }
         stage('test') {
           steps {
            echo "testing..."
