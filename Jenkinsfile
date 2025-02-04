@@ -13,7 +13,7 @@ piepline {
      }
        stage('Deploy') {
            steps {
-             sh "cp CI-CD/target/webapps.war /opt/tomcat/webapps' 
+             sh "sudo cp CI-CD/target/webapps.war /opt/tomcat/webapps"
            }
            }
     
