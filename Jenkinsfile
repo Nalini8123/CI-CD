@@ -19,7 +19,13 @@ pipeline {
        stage('Deploy') {
            steps {
             withCredentials([usernamePassword(credentialsId: 'jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-            sh "echo $PASS | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps"
+    // Check if the WAR file exists before attempting the copy
+    sh 'ls -al CI-CD/target/'
+
+    // Only proceed if the file exists
+    sh 'echo $PASS | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps'
+}
+
            }
           }
        }
