@@ -23,7 +23,8 @@ pipeline {
     sh 'ls -al CI-CD/target/'
 
     // Only proceed if the file exists
-    sh 'echo $PASS | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps'
+    sh 'echo $PASS | sudo -S cp 
+/var/lib/jenkins/workspace/CI-CD/target/webapps.war /opt/tomcat/webapps'
 
            }
           }
