@@ -22,6 +22,7 @@ pipeline {
             sh "echo $PASS | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps"
            }
           }
+       }
     
         stage('test') {
           steps {
