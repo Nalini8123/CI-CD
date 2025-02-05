@@ -18,7 +18,8 @@ pipeline {
      }
        stage('Deploy') {
            steps {
-            sh 'echo "admin" | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps'
+            withCredentials([usernamePassword(credentialsId: 'jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+            sh "echo $PASS | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps"
            }
           }
     
