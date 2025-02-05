@@ -20,11 +20,10 @@ pipeline {
            steps {
             withCredentials([usernamePassword(credentialsId: 'jenkins', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
     // Check if the WAR file exists before attempting the copy
-    sh 'ls -al CI-CD/target/'
+    sh 'ls -al /var/lib/jenkins/workspaceCI-CD/target/'
 
     // Only proceed if the file exists
-    sh 'echo $PASS | sudo -S cp 
-/var/lib/jenkins/workspace/CI-CD/target/webapps.war /opt/tomcat/webapps'
+    sh 'echo $PASS | sudo -S cp /var/lib/jenkins/workspace/CI-CD/target/webapps.war /opt/tomcat/webapps'
 
            }
           }
