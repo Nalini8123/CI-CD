@@ -1,11 +1,10 @@
-pipeline {
+piepline {
  agent any
-
-  tools {
-     jdk 'jdk17'
-     maven '3.9.9'
-  }
  
+ tools {
+   jdk='jdk17'
+   maven='3.9.9'
+ }
    stages{
      stage('checkout') {
        steps {
@@ -14,15 +13,15 @@ pipeline {
      }
      stage('build') {
        steps {
-          sh 'mvn clean install'
+          sh "mvn clean install -DskipTests"
        }
      }
+       stage('Deploy') {
+           steps {
+             sh "sudo cp CI-CD/target/webapps.war /opt/tomcat/webapps"
+           }
+          }
     
-       stage('deploy') {
-        steps {
-         echo "deploying...."
-        }
-       }
         stage('test') {
           steps {
            echo "testing..."
@@ -30,3 +29,20 @@ pipeline {
         }
        }
      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
