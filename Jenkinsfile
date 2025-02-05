@@ -18,7 +18,7 @@ pipeline {
      }
        stage('Deploy') {
            steps {
-             echo "admin" | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps
+            sh echo "admin" | sudo -S cp CI-CD/target/webapps.war /opt/tomcat/webapps
            }
           }
     
