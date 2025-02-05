@@ -8,7 +8,7 @@ piepline {
      }
      stage('build') {
        steps {
-          sh "mv clean install"
+          sh "mvn clean install"
        }
      }
        stage('Deploy') {
